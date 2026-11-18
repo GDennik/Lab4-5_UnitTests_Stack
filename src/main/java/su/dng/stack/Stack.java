@@ -20,7 +20,10 @@ public class Stack {
         if (size == 0) {
             throw new IllegalStateException("Stack is empty");
         }
-        return elements[--size];
+        size--;
+        Object result = elements[size];
+        elements[size] = null;
+        return result;
     }
 
     private void ensureCapacity() {
